@@ -1,0 +1,70 @@
+{
+  "name": "json-mock-server",
+  "displayName": "json-mock-server",
+  "description": "A Json mock server with json db",
+  "version": "1.0.3",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "json-mock-server.start",
+        "title": "Start Json Mock Server"
+      },
+      {
+        "command": "json-mock-server.stop",
+        "title": "Stop Json Mock Server"
+      },
+      {
+        "command": "json-mock-server.init",
+        "title": "Init demo json db"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Json Mock Server",
+      "properties": {
+        "json-mock-server.port": {
+          "type": "number",
+          "default": 3000,
+          "description": "Port for json mock server"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./ && copyfiles -u 1 'src/**/*.json' out ",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test",
+    "dev": "ts-node src/json.mock.server.ts"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.99.0",
+    "@types/yargs": "^17.0.33",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "copyfiles": "^2.4.1",
+    "eslint": "^9.23.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "json-server": "1.0.0-beta.3",
+    "tree-kill": "^1.2.2",
+    "yargs": "^17.7.2"
+  },
+  "license": "MIT"
+}
