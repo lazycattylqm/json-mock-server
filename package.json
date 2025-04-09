@@ -2,6 +2,15 @@
   "name": "json-mock-server",
   "displayName": "json-mock-server",
   "description": "A Json mock server with json db",
+  "icon": "images/mock.png",
+  "publisher": "robertqmli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lazycattylqm/json-mock-server"
+  },
+  "bugs": {
+    "url": "https://github.com/lazycattylqm/json-mock-server/issues"
+  },
   "version": "1.0.3",
   "engines": {
     "vscode": "^1.90.0"
@@ -40,7 +49,7 @@
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
-    "compile": "tsc -p ./ && copyfiles -u 1 'src/**/*.json' out ",
+    "compile": "tsc -p ./ && copyfiles -u 1 'src/**/*.json' out && copyfiles -u 1 'images/**/*' out ",
     "watch": "tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src",
